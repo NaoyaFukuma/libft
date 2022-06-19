@@ -6,7 +6,7 @@
 /*   By: nfukuma <nfukuma@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 21:09:46 by nfukuma           #+#    #+#             */
-/*   Updated: 2022/06/18 21:09:47 by nfukuma          ###   ########.fr       */
+/*   Updated: 2022/06/19 22:45:04 by nfukuma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,6 @@
 # include <unistd.h>
 
 int	ft_isalpha(int c);
+int	ft_isdigit(int c);
 
 #endif

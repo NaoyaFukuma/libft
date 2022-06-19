@@ -6,11 +6,9 @@
 /*   By: nfukuma <nfukuma@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 21:58:43 by nfukuma           #+#    #+#             */
-/*   Updated: 2022/06/18 21:07:58 by nfukuma          ###   ########.fr       */
+/*   Updated: 2022/06/19 22:44:35 by nfukuma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int	ft_isalpha(int c)
 {
