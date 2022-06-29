@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfukuma <nfukuma@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/18 21:09:46 by nfukuma           #+#    #+#             */
-/*   Updated: 2022/06/29 10:16:11 by nfukuma          ###   ########.fr       */
+/*   Created: 2022/05/20 23:14:48 by nfukuma           #+#    #+#             */
+/*   Updated: 2022/06/29 10:10:38 by nfukuma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef LIBFT_H
+#include "libft.h"
 
-	# define LIBFT_H
-	# include <stdlib.h>
-	# include <unistd.h>
+void	*ft_memmove(void *dst, const void *src, size_t size)
+{
+	char		*dst_cpy;
+	const char	*src_cpy;
 
-	int		ft_isalpha(int c);
-	int		ft_isdigit(int c);
-	int		ft_isascii(int c);
-	int		ft_isprint(int c);
-	size_t	ft_strlen(const char *str);
-	void	*ft_memset(void *buf, int c, size_t size);
-	void	ft_bzero(void *s, size_t n);
-	void	*ft_memmove(void *dst, const void *src, size_t size);
-
-
-#endif
+	dst_cpy = (char *)dst;
+	src_cpy = (const char *)src;
+	if (dst_cpy <= src_cpy)
+	{
+		while (size--)
+			*dst_cpy++ = *src_cpy++;
+	}
+	else
+	{
+		dst_cpy += size;
+		src_cpy += size;
+		while (size--)
+			*--dst_cpy = *--src_cpy;
+	}
+	return (dst);
+}
