@@ -6,7 +6,7 @@
 /*   By: nfukuma <nfukuma@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 21:09:46 by nfukuma           #+#    #+#             */
-/*   Updated: 2022/07/04 11:33:38 by nfukuma          ###   ########.fr       */
+/*   Updated: 2022/07/04 11:39:20 by nfukuma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,7 @@
 	size_t	ft_strlcat(char *dst, const char *src, size_t size);
 	int		ft_toupper(int c);
 	int		ft_tolower(int c);
+	char	*ft_strchr(const char *str, int c);
+
 
 #endif
