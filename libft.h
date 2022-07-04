@@ -6,7 +6,7 @@
 /*   By: nfukuma <nfukuma@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 21:09:46 by nfukuma           #+#    #+#             */
-/*   Updated: 2022/07/04 14:00:33 by nfukuma          ###   ########.fr       */
+/*   Updated: 2022/07/04 14:04:08 by nfukuma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@
 	char	**ft_split(const char *str, char c);
 	char	*ft_itoa(int n);
 	char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+	void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 
 	char	*ft_strnew(size_t size);
 
