@@ -6,7 +6,7 @@
 /*   By: nfukuma <nfukuma@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 21:09:46 by nfukuma           #+#    #+#             */
-/*   Updated: 2022/07/04 12:12:41 by nfukuma          ###   ########.fr       */
+/*   Updated: 2022/07/04 12:23:59 by nfukuma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,6 @@
 	void	*ft_memchr(const void *buf, int c, size_t n);
 	int		ft_memcmp(const void *s1, const void *s2, size_t size);
 	char	*ft_strnstr(const char *str, const char *target, size_t size);
+	int		ft_atoi(const char *str);
 
 #endif
