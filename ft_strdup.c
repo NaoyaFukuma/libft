@@ -6,7 +6,7 @@
 /*   By: nfukuma <nfukuma@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 23:33:53 by nfukuma           #+#    #+#             */
-/*   Updated: 2022/06/17 11:42:10 by nfukuma          ###   ########.fr       */
+/*   Updated: 2022/07/04 15:46:18 by nfukuma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,14 @@
 char	*ft_strdup(const char *str)
 {
 	char	*dst;
+	size_t	strlen;
 
 	if (!str)
 		return (NULL);
-	dst = ft_strnew(ft_strlen(str));
+	strlen = ft_strlen(str);
+	dst = ft_strnew(strlen);
 	if (dst == NULL)
 		return (NULL);
-	return (ft_strcpy(dst, str));
+	ft_strlcpy(dst, str, strlen + 1);
+	return (dst);
 }
