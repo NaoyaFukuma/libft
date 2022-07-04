@@ -6,7 +6,7 @@
 /*   By: nfukuma <nfukuma@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 21:09:46 by nfukuma           #+#    #+#             */
-/*   Updated: 2022/07/04 13:21:45 by nfukuma          ###   ########.fr       */
+/*   Updated: 2022/07/04 13:25:27 by nfukuma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@
 	char	*ft_strnstr(const char *str, const char *target, size_t size);
 	int		ft_atoi(const char *str);
 	void	*ft_calloc(size_t num, size_t size);
+	char	*ft_strdup(const char *str);
 
+	char	*ft_strnew(size_t size);
 
 #endif
