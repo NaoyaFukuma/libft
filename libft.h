@@ -6,7 +6,7 @@
 /*   By: nfukuma <nfukuma@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 21:09:46 by nfukuma           #+#    #+#             */
-/*   Updated: 2022/07/04 14:08:11 by nfukuma          ###   ########.fr       */
+/*   Updated: 2022/07/04 14:09:20 by nfukuma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@
 	void	ft_putchar_fd(char c, int fd);
 	void	ft_putstr_fd(const char *str, int fd);
 	void	ft_putendl_fd(char const *str, int fd);
+	void	ft_putnbr_fd(int n, int fd);
 
 	char	*ft_strnew(size_t size);
 
