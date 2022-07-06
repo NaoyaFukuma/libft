@@ -6,13 +6,13 @@
 /*   By: nfukuma <nfukuma@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 22:10:28 by nfukuma           #+#    #+#             */
-/*   Updated: 2022/07/04 14:22:51 by nfukuma          ###   ########.fr       */
+/*   Updated: 2022/07/06 12:00:21 by nfukuma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static const char	*ft_sign_flag(const char *str, int	*sign_flag)
+static const char	*ft_sign_flag(const char *str, int *sign_flag)
 {
 	*sign_flag = 1;
 	if (*str == '-')
@@ -44,15 +44,10 @@ int	ft_atoi(const char *str)
 	while (ft_isdigit(*str))
 	{
 		if (sign_flag == 1 && (res > ((max - (*str - '0')) * sign_flag) / 10))
-		{
-			res = max;
-			break;
-		}
-		else if (sign_flag == -1 && (res < ((max - (*str - '0' - 1)) * sign_flag) / 10))
-		{
-			res = (-max - 1);
-			break;
-		}
+			return ((int)max);
+		else if (sign_flag == -1 && (res < ((max - (*str - '0' - 1))
+					* sign_flag) / 10))
+			return ((int)(-max - 1));
 		res = (10 * res) + ((*str - '0') * sign_flag);
 		str++;
 	}

@@ -6,12 +6,11 @@
 /*   By: nfukuma <nfukuma@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 22:38:26 by nfukuma           #+#    #+#             */
-/*   Updated: 2022/07/04 13:58:17 by nfukuma          ###   ########.fr       */
+/*   Updated: 2022/07/06 11:48:21 by nfukuma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
 
 static char	*ft_recursive_cleate_str(char *str, int n)
 {
