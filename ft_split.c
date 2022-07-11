@@ -6,13 +6,13 @@
 /*   By: nfukuma <nfukuma@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 17:45:13 by nfukuma           #+#    #+#             */
-/*   Updated: 2022/07/11 13:55:14 by nfukuma          ###   ########.fr       */
+/*   Updated: 2022/07/11 15:37:44 by nfukuma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*free_all(char **split_strs, size_t num)
+static void	*free_all(char **split_strs, size_t num)
 {
 	size_t	i;
 
@@ -26,7 +26,7 @@ void	*free_all(char **split_strs, size_t num)
 	return (NULL);
 }
 
-size_t	splitstr_len(const char *str, int c)
+static size_t	splitstr_len(const char *str, int c)
 {
 	size_t	i;
 
