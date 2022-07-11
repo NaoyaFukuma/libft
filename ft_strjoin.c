@@ -6,25 +6,22 @@
 /*   By: nfukuma <nfukuma@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 23:24:10 by nfukuma           #+#    #+#             */
-/*   Updated: 2022/06/17 11:23:15 by nfukuma          ###   ########.fr       */
+/*   Updated: 2022/07/08 21:13:07 by nfukuma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(const char *s1, const char *s2)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*nstr;
-	char	*tmp_nstr;
+	char	*s3;
 
-	nstr = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
-	if (nstr == NULL)
+	if (s1 == NULL || s2 == NULL)
 		return (NULL);
-	tmp_nstr = nstr;
-	while (*s1)
-		*tmp_nstr++ = *s1++;
-	while (*s2)
-		*tmp_nstr++ = *s2++;
-	*tmp_nstr = '\0';
-	return (nstr);
+	s3 = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (s3 == NULL)
+		return (NULL);
+	ft_strlcpy(s3, s1, ft_strlen(s1) + 1);
+	ft_strlcat(s3, s2, ft_strlen(s1) + ft_strlen(s2) + 1);
+	return (s3);
 }

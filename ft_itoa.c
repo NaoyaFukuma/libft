@@ -6,56 +6,54 @@
 /*   By: nfukuma <nfukuma@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 22:38:26 by nfukuma           #+#    #+#             */
-/*   Updated: 2022/07/06 11:48:21 by nfukuma          ###   ########.fr       */
+/*   Updated: 2022/07/11 12:52:41 by nfukuma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*ft_recursive_cleate_str(char *str, int n)
+static char	*ft_recursive_cleate_str(char *str, long long long_long_n)
 {
-	if (n / 10)
-		str = ft_recursive_cleate_str(str, (n / 10));
-	*str++ = (n % 10 + '0');
+	if (long_long_n > 9)
+		str = ft_recursive_cleate_str(str, (long_long_n / 10));
+	*str++ = (long_long_n % 10 + '0');
 	return (str);
 }
 
-static int	ft_get_digits(int n)
+static size_t	ft_get_digits(long long long_long_n)
 {
-	int	digits;
+	size_t	digits;
 
-	if (n == -2147483648)
-		return (11);
 	digits = 1;
-	while (n / 10)
+	if (long_long_n < 0)
+		digits++;
+	while (long_long_n / 10 != 0)
 	{
-		n /= 10;
+		long_long_n /= 10;
 		digits++;
 	}
-	return (digits + 1);
+	return (digits);
 }
 
 char	*ft_itoa(int n)
 {
-	char	*str;
-	char	*tmp_str;
+	char		*str;
+	long long	long_long_n;
+	size_t		digits;
 
-	str = malloc(sizeof(char) * ft_get_digits(n));
+	long_long_n = n;
+	digits = ft_get_digits(long_long_n);
+	str = malloc(sizeof(char) * (digits + 1));
 	if (str == NULL)
 		return (NULL);
-	tmp_str = str;
-	if (n < 0)
+	if (long_long_n < 0)
 	{
-		*tmp_str++ = '-';
-		if (n == -2147483648)
-		{
-			*tmp_str++ = '2';
-			n = 147483648;
-		}
-		else
-			n = -n;
+		*str = '-';
+		long_long_n *= -1;
+		str = ft_recursive_cleate_str(&str[1], long_long_n);
 	}
-	tmp_str = ft_recursive_cleate_str(tmp_str, n);
-	*tmp_str = '\0';
-	return (str);
+	else
+		str = ft_recursive_cleate_str(str, long_long_n);
+	*str = '\0';
+	return (str - digits);
 }

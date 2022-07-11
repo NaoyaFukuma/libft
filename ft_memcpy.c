@@ -6,7 +6,7 @@
 /*   By: nfukuma <nfukuma@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 22:17:48 by nfukuma           #+#    #+#             */
-/*   Updated: 2022/06/17 10:53:39 by nfukuma          ###   ########.fr       */
+/*   Updated: 2022/07/11 14:39:34 by nfukuma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,17 @@
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	char		*d_cpy;
-	const char	*s_cpy;
+	unsigned char	*d;
+	unsigned char	*s;
+	size_t			i;
 
-	d_cpy = (char *)dst;
-	s_cpy = (const char *)src;
-	while (n--)
-		*d_cpy++ = *s_cpy++;
+	d = (unsigned char *)dst;
+	s = (unsigned char *)src;
+	i = 0;
+	while (i < n)
+	{
+		d[i] = s[i];
+		i++;
+	}
 	return (dst);
 }

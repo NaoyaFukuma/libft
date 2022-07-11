@@ -6,110 +6,88 @@
 /*   By: nfukuma <nfukuma@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 17:45:13 by nfukuma           #+#    #+#             */
-/*   Updated: 2022/07/06 11:46:58 by nfukuma          ###   ########.fr       */
+/*   Updated: 2022/07/11 13:55:14 by nfukuma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	**ft_sep_str_alloc(char **sep_str, const char *str, char c)
+void	*free_all(char **split_strs, size_t num)
 {
-	char	**sep_str_tmp;
-	int		len;
-	int		i;
+	size_t	i;
 
 	i = 0;
-	sep_str_tmp = sep_str;
-	while (*str)
+	while (i < num)
 	{
-		len = 0;
-		while (*str != c && *str)
-		{
-			len++;
-			str++;
-		}
-		if (*str)
-			str++;
-		if (len)
-		{
-			sep_str_tmp[i] = malloc(sizeof(char) * (len + 1));
-			i++;
-		}
+		free(split_strs[i]);
+		i++;
 	}
-	return (sep_str);
+	free(split_strs);
+	return (NULL);
 }
 
-static int	ft_str_num(const char *str, char c)
+size_t	splitstr_len(const char *str, int c)
 {
-	int	num;
+	size_t	i;
 
-	num = 1;
-	while (*str)
+	i = 0;
+	while (str[i] != '\0' && str[i] != (char)c)
+		i++;
+	return (i);
+}
+
+static const char	*ignore_c(const char *str, int c)
+{
+	while (*str == c && *str != '\0')
+		str++;
+	return (str);
+}
+
+static size_t	count_str(const char *str, char c)
+{
+	size_t	count;
+
+	count = 0;
+	while (1)
 	{
 		if (*str == c)
+			str = ignore_c(str, c);
+		if (*str != '\0')
 		{
-			while (*str == c && *str)
-				str++;
-			if (*str != '\0')
-				num++;
+			str += splitstr_len(str, c);
+			count++;
 		}
-		else
-			str++;
+		if (*str == '\0')
+			break ;
 	}
-	return (num + 1);
-}
-
-static char	**ft_sepalloc(const char *str, char c)
-{
-	char	**sep_str;
-
-	sep_str = malloc(sizeof(char *) * ft_str_num(str, c));
-	if (sep_str == NULL)
-		return (NULL);
-	sep_str = ft_sep_str_alloc(sep_str, str, c);
-	return (sep_str);
-}
-
-static int	ft_preprocessing(char ***sep_str, const char **str, char c)
-{
-	if (*str == NULL)
-		return (1);
-	while (**str == c && **str)
-		*str = *str + 1;
-	if (**str == '\0')
-	{
-		*sep_str = malloc(sizeof(char *));
-		if (*sep_str == NULL)
-			return (1);
-		**sep_str = NULL;
-	}
-	return (0);
+	return (count);
 }
 
 char	**ft_split(const char *str, char c)
 {
-	char	**sep_str;
-	int		i;
-	int		j;
+	char	**split_strs;
+	size_t	str_count;
+	size_t	str_len;
+	size_t	i;
 
-	sep_str = NULL;
-	if (ft_preprocessing(&sep_str, &str, c))
+	if (str == NULL)
 		return (NULL);
-	else if (*str == '\0')
-		return (sep_str);
-	sep_str = ft_sepalloc(str, c);
-	if (!sep_str)
+	str_count = count_str(str, c);
+	split_strs = malloc(sizeof(char *) * (str_count + 1));
+	if (split_strs == NULL)
 		return (NULL);
 	i = 0;
-	while (*str)
+	while (i < str_count)
 	{
-		j = 0;
-		while (*str != c && *str)
-			sep_str[i][j++] = *str++;
-		sep_str[i++][j] = '\0';
-		while (*str == c && *str)
-			str++;
+		str = ignore_c(str, c);
+		str_len = splitstr_len(str, c);
+		split_strs[i] = malloc(sizeof(char) * (str_len + 1));
+		if (split_strs[i] == NULL)
+			return (free_all(split_strs, i));
+		ft_strlcpy(split_strs[i], str, str_len + 1);
+		str += str_len;
+		i++;
 	}
-	sep_str[i] = NULL;
-	return (sep_str);
+	split_strs[str_count] = NULL;
+	return (split_strs);
 }

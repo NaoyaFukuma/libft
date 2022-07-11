@@ -6,7 +6,7 @@
 /*   By: nfukuma <nfukuma@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 00:07:34 by nfukuma           #+#    #+#             */
-/*   Updated: 2022/06/16 15:29:46 by nfukuma          ###   ########.fr       */
+/*   Updated: 2022/07/08 14:55:08 by nfukuma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	ft_putstr_fd(const char *str, int fd)
 {
-	while (*str)
-		ft_putchar_fd(*str++, fd);
+	if (str == NULL)
+		return ;
+	write(fd, str, ft_strlen(str));
 }

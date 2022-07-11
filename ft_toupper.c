@@ -6,7 +6,7 @@
 /*   By: nfukuma <nfukuma@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 12:36:34 by nfukuma           #+#    #+#             */
-/*   Updated: 2022/06/16 18:33:29 by nfukuma          ###   ########.fr       */
+/*   Updated: 2022/07/08 23:32:04 by nfukuma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 int	ft_toupper(int c)
 {
 	if (c >= 'a' && c <= 'z')
-		return (c - 32);
+		return (c - ('a' - 'A'));
 	return (c);
 }

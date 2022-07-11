@@ -6,7 +6,7 @@
 /*   By: nfukuma <nfukuma@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 00:27:26 by nfukuma           #+#    #+#             */
-/*   Updated: 2022/06/16 13:57:11 by nfukuma          ###   ########.fr       */
+/*   Updated: 2022/07/08 23:03:42 by nfukuma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 size_t	ft_strlen(const char *str)
 {
-	size_t	len;
+	size_t	i;
 
-	len = 0;
-	while (*str++)
-		len++;
-	return (len);
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
 }

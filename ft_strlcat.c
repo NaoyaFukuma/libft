@@ -6,41 +6,24 @@
 /*   By: nfukuma <nfukuma@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 00:44:31 by nfukuma           #+#    #+#             */
-/*   Updated: 2022/06/16 18:48:35 by nfukuma          ###   ########.fr       */
+/*   Updated: 2022/07/10 01:28:43 by nfukuma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-static size_t	ft_strnlen(const char *str, size_t maxlen)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	size_t	len;
+	size_t	d_len;
+	size_t	s_len;
 
-	len = 0;
-	while (len < maxlen)
-	{
-		if (!*str)
-			break ;
-		str++;
-		len++;
-	}
-	return (len);
-}
-
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
-{
-	size_t	lendst;
-	size_t	lensrc;
-
-	lendst = ft_strnlen(dst, size);
-	lensrc = ft_strlen(src);
-	if (size <= lendst)
-		return (lensrc + size);
-	size -= (lendst + 1);
-	while (*dst)
-		dst++;
-	while (*src && size--)
-		*dst++ = *src++;
-	*dst = '\0';
-	return (lendst + lensrc);
+	if (dst == NULL || src == NULL)
+		return (0);
+	d_len = ft_strlen(dst);
+	s_len = ft_strlen(src);
+	if (dstsize <= d_len)
+		return (s_len + dstsize);
+	ft_strlcpy(&dst[d_len], src, dstsize - d_len);
+	return (d_len + s_len);
 }

@@ -6,11 +6,12 @@
 /*   By: nfukuma <nfukuma@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 22:10:28 by nfukuma           #+#    #+#             */
-/*   Updated: 2022/07/06 12:00:21 by nfukuma          ###   ########.fr       */
+/*   Updated: 2022/07/11 14:40:10 by nfukuma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <limits.h>
 
 static const char	*ft_sign_flag(const char *str, int *sign_flag)
 {
@@ -33,21 +34,20 @@ static int	ft_isspace(char c)
 int	ft_atoi(const char *str)
 {
 	long long	res;
-	long long	max;
 	int			sign_flag;
 
-	max = 0x7fffffffffff;
 	while (ft_isspace(*str))
 		str++;
 	str = ft_sign_flag(str, &sign_flag);
 	res = 0;
 	while (ft_isdigit(*str))
 	{
-		if (sign_flag == 1 && (res > ((max - (*str - '0')) * sign_flag) / 10))
-			return ((int)max);
-		else if (sign_flag == -1 && (res < ((max - (*str - '0' - 1))
+		if (sign_flag == 1 && (res > ((LONG_LONG_MAX - (*str - '0'))
 					* sign_flag) / 10))
-			return ((int)(-max - 1));
+			return ((int)LONG_MAX);
+		else if (sign_flag == -1 && (res < ((LONG_LONG_MIN - (*str - '0'))
+					* sign_flag) / 10))
+			return ((int)LONG_MIN);
 		res = (10 * res) + ((*str - '0') * sign_flag);
 		str++;
 	}
