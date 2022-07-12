@@ -6,12 +6,11 @@
 /*   By: nfukuma <nfukuma@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 00:16:07 by nfukuma           #+#    #+#             */
-/*   Updated: 2022/07/11 14:39:14 by nfukuma          ###   ########.fr       */
+/*   Updated: 2022/07/11 21:52:55 by nfukuma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "stdio.h"
 
 char	*ft_strchr(const char *s, int c)
 {

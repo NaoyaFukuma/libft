@@ -6,11 +6,12 @@
 /*   By: nfukuma <nfukuma@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 22:10:28 by nfukuma           #+#    #+#             */
-/*   Updated: 2022/07/11 16:32:37 by nfukuma          ###   ########.fr       */
+/*   Updated: 2022/07/12 02:16:19 by nfukuma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "limits.h"
 
 static const char	*ft_sign_flag(const char *str, int *sign_flag)
 {
@@ -27,31 +28,26 @@ static const char	*ft_sign_flag(const char *str, int *sign_flag)
 
 static int	ft_isspace(char c)
 {
-	return ((c >= 9 && c <= 13) || c == 32);
+	return (('\t' <= c && c <= '\r') || c == ' ');
 }
 
 int	ft_atoi(const char *str)
 {
 	long	res;
-	long	long_max;
-	long	long_min;
 	int		sign_flag;
 
 	while (ft_isspace(*str))
 		str++;
 	str = ft_sign_flag(str, &sign_flag);
 	res = 0;
-	long_max = 9223372036854775807;
-	long_min = -9223372036854775807;
-	long_min -= 1;
 	while (ft_isdigit(*str))
 	{
-		if (sign_flag == 1 && (res > ((long_max - (*str - '0')) * sign_flag)
+		if (sign_flag == 1 && (res > ((LONG_MAX - (*str - '0')) * sign_flag)
 				/ 10))
-			return ((int)long_max);
-		else if (sign_flag == -1 && (res < ((long_min - (*str - '0'))
+			return ((int)LONG_MAX);
+		else if (sign_flag == -1 && (res < ((LONG_MIN - (*str - '0'))
 					* sign_flag) / 10))
-			return ((int)long_min);
+			return ((int)LONG_MIN);
 		res = (10 * res) + ((*str - '0') * sign_flag);
 		str++;
 	}

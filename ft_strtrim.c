@@ -6,7 +6,7 @@
 /*   By: nfukuma <nfukuma@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 16:38:56 by nfukuma           #+#    #+#             */
-/*   Updated: 2022/07/11 15:41:46 by nfukuma          ###   ########.fr       */
+/*   Updated: 2022/07/12 01:47:28 by nfukuma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char	*ft_strtrim(const char *str, const char *set)
 	while (isset(*str, set))
 		str++;
 	if (*str == '\0')
-		return ((char *)str);
+		return (ft_strdup(str));
 	res_str_ren = trimstrlen(str, set);
 	res_str = malloc(sizeof(char) * res_str_ren + 1);
 	ft_strlcpy(res_str, str, res_str_ren + 1);

@@ -6,16 +6,16 @@
 /*   By: nfukuma <nfukuma@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 22:38:26 by nfukuma           #+#    #+#             */
-/*   Updated: 2022/07/11 12:52:41 by nfukuma          ###   ########.fr       */
+/*   Updated: 2022/07/12 02:04:10 by nfukuma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*ft_recursive_cleate_str(char *str, long long long_long_n)
+static char	*ft_recursive_create_str(char *str, long long long_long_n)
 {
 	if (long_long_n > 9)
-		str = ft_recursive_cleate_str(str, (long_long_n / 10));
+		str = ft_recursive_create_str(str, (long_long_n / 10));
 	*str++ = (long_long_n % 10 + '0');
 	return (str);
 }
@@ -50,10 +50,10 @@ char	*ft_itoa(int n)
 	{
 		*str = '-';
 		long_long_n *= -1;
-		str = ft_recursive_cleate_str(&str[1], long_long_n);
+		str = ft_recursive_create_str(&str[1], long_long_n);
 	}
 	else
-		str = ft_recursive_cleate_str(str, long_long_n);
+		str = ft_recursive_create_str(str, long_long_n);
 	*str = '\0';
 	return (str - digits);
 }
