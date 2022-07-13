@@ -6,7 +6,7 @@
 /*   By: nfukuma <nfukuma@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 12:57:05 by nfukuma           #+#    #+#             */
-/*   Updated: 2022/07/12 02:06:23 by nfukuma          ###   ########.fr       */
+/*   Updated: 2022/07/12 14:16:55 by nfukuma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 
 	if (lst == NULL)
 		return ;
-	while (*lst)
+	while (*lst != NULL)
 	{
 		temp = (*lst)->next;
 		ft_lstdelone(*lst, del);

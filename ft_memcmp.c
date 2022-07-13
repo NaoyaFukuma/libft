@@ -6,7 +6,7 @@
 /*   By: nfukuma <nfukuma@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 22:56:31 by nfukuma           #+#    #+#             */
-/*   Updated: 2022/07/12 02:10:58 by nfukuma          ###   ########.fr       */
+/*   Updated: 2022/07/13 01:42:03 by nfukuma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t size)
 {
 	const unsigned char	*uc_s1;
 	const unsigned char	*uc_s2;
-	size_t			i;
+	size_t				i;
 
 	uc_s1 = (const unsigned char *)s1;
 	uc_s2 = (const unsigned char *)s2;

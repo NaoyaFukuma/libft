@@ -6,7 +6,7 @@
 /*   By: nfukuma <nfukuma@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 11:00:21 by nfukuma           #+#    #+#             */
-/*   Updated: 2022/07/12 01:43:16 by nfukuma          ###   ########.fr       */
+/*   Updated: 2022/07/13 01:42:57 by nfukuma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	const unsigned char	*a;
 	const unsigned char	*b;
-	size_t			i;
+	size_t				i;
 
 	a = (const unsigned char *)s1;
 	b = (const unsigned char *)s2;
