@@ -6,12 +6,12 @@
 /*   By: nfukuma <nfukuma@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 16:38:56 by nfukuma           #+#    #+#             */
-/*   Updated: 2022/07/13 01:46:27 by nfukuma          ###   ########.fr       */
+/*   Updated: 2022/07/15 15:08:05 by nfukuma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "stdbool.h"
+#include <stdbool.h>
 
 static bool	isset(char c, const char *set)
 {
@@ -43,8 +43,6 @@ char	*ft_strtrim(const char *str, const char *set)
 		return (NULL);
 	while (isset(*str, set) == true)
 		str++;
-	if (*str == '\0')
-		return (ft_strdup(str));
 	res_str_ren = trimstrlen(str, set);
 	res_str = malloc(sizeof(char) * (res_str_ren + 1));
 	ft_strlcpy(res_str, str, res_str_ren + 1);
