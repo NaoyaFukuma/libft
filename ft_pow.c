@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_pow.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfukuma <nfukuma@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/30 23:33:53 by nfukuma           #+#    #+#             */
-/*   Updated: 2022/07/24 01:21:32 by nfukuma          ###   ########.fr       */
+/*   Created: 2022/08/11 00:58:09 by nfukuma           #+#    #+#             */
+/*   Updated: 2022/08/11 01:02:55 by nfukuma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s1)
+int	ft_pow(int num, int pow)
 {
-	char	*d;
-	size_t	s1_len;
+	int	res;
 
-	if (s1 == NULL)
-		return (NULL);
-	s1_len = ft_strlen(s1);
-	d = malloc(s1_len + 1);
-	if (d == NULL)
-		return (NULL);
-	ft_strlcpy(d, s1, s1_len + 1);
-	return (d);
+	res = num;
+	if (pow == 0)
+		return (1);
+	if (pow == 1)
+		return (num);
+	while (--pow)
+		res = res * num;
+	return (res);
 }
