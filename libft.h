@@ -6,7 +6,7 @@
 /*   By: nfukuma <nfukuma@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 21:09:46 by nfukuma           #+#    #+#             */
-/*   Updated: 2022/08/11 01:03:06 by nfukuma          ###   ########.fr       */
+/*   Updated: 2022/08/11 01:08:38 by nfukuma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,6 @@ t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 						void (*del)(void *));
 char				*ft_ultoa(unsigned long n);
 char				*ft_ultoa_base(unsigned long n, int base, char *base_set);
-int					ft_pow(int num, int pow);
+int					ft_pow(int num, size_t pow);
 
 #endif
